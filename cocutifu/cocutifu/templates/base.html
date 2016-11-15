@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="{% block description %}{% endblock description %}">
+    <meta name="keywords" content="Tierra y Fuego, Cocutifu, Grupo Teatral Tunja, Teatro, Cultura, Dramaturgia, Tunja, Corporacion Cultural">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {% block title %}
+        Cocutifu
+      {% endblock title %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+  </head>
+<body>
+  <!-- header-section-starts -->
+  <nav class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="{% url 'web:home' %}"><h1>Corp. Tierra y Fuego</h1></a>
+      </div>
+      <div class="navigation">
+        <ul>
+          <li><a href="{% url 'web:about' %}">Quienes somos</a></li>
+          <li><a href="https://www.instagram.com/cocutifu/" target="_blank">Galería</a></li>
+          <li><a href="#" disabled="disabled">Contactanos</a></li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </nav>
+  {% block post_types %}
+    <div class="container">
+      <div class="header-bottom">
+        <div class="type">
+          <h5>Categoria</h5>
+        </div>
+        <span class="menu"></span>
+        <div class="list-nav">
+          <ul>      
+            {% for type in post_types %}
+              <li><a href="{% url 'web:home' %}">{{ type.name }}</a></li>|
+            {% endfor %}
+          </ul>
+        </div>
+        <!-- script for menu -->
+          <script>
+          $( "span.menu" ).click(function() {
+            $( ".list-nav" ).slideToggle( "slow", function() {
+              // Animation complete.
+            });
+          });
+        </script>
+        <!-- script for menu -->
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  {% endblock post_types %}
+  <div class="container">
+    <div class="content">
+      {% block content %}
+      {% endblock content %} 
+      <div class="clearfix"></div>   
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="copyrights">
+          <p>Corporación Cultural Tierra y Fuego © 2016 All rights reserved | Template by  <a href="http://w3layouts.com">  W3layouts</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

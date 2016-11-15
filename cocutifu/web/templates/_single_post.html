@@ -1,0 +1,12 @@
+<div class="article">
+  {% ifequal forloop.counter0 0 %}
+      <h5 class="head">Publicaciones</h5>
+  {% endifequal %}
+  <h6>{{ post.get_types_str }} </h6>
+  <a class="title" href="{% url 'web:post' post.slug %}">{{ post.title }}</a>
+  <a href="{% url 'web:post' post.slug %}"><img class="post-img" src="{{ post.image }}" alt=""/></a>
+  <div class="post-content" style="padding-right: 35px;">
+    {{ post.content|safe|truncatechars:280 }}
+  </div>
+</div>
+<hr>
