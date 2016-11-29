@@ -12,16 +12,18 @@
 
 {% block content %}
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-sm-6">
       <div class="single-page">
         <div class="print-main">
           <a href="single.html">{{ post.title }}</a>
           <p class="sub_head">Publicado por <a href="#">{{ post.user.get_full_name }}</a> {{ post.date|naturaltime }}</p>
           <a><img src="{{ post.image }}" class="img-responsive" alt="" /></a>
-          <div class="ptext" style="width:100%">
-            {{ post.content|safe }}
-          </div>
         </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="ptext" style="width:90%">
+        {{ post.content|safe }}
       </div>
     </div>
   </div>  

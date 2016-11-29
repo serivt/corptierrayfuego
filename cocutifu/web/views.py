@@ -10,7 +10,11 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(self.__class__, self).get_context_data(**kwargs)
-        context['posts'] = Post.objects.filter(active=True)
+        if 'type' in self.request.GET and self.request.GET['type']:
+            post_type = get_object_or_404(PostType, pk=self.request.GET['type'])
+            context['posts'] = Post.objects.filter(types=post_type, active=True)
+        else:
+            context['posts'] = Post.objects.filter(active=True)
         repertoires = PostType.objects.filter(name__icontains='Repertorio')
         if repertoires.exists():
         	context['repertoires'] = Post.objects.filter(types=repertoires[0])

@@ -44,7 +44,7 @@
         <div class="list-nav">
           <ul>      
             {% for type in post_types %}
-              <li><a href="{% url 'web:home' %}">{{ type.name }}</a></li>|
+              <li><a href="{% url 'web:home' %}?type={{ type.pk }}">{{ type.name }}</a></li>|
             {% endfor %}
           </ul>
         </div>
