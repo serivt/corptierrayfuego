@@ -185,6 +185,14 @@ h5.head {
 	font-family: 'Antonio-Regular';
 	margin-top: 1em;
 }
+.article h1{
+	color:#1ac7c3;
+	font-size: 3.7em;
+	font-weight: 400;
+	margin-left: 0.0em;
+	font-family: 'Antonio-Regular';
+	margin-top: 1em;
+}
 a.title {
 	color: #282828;
 	font-size: 1.85em;
