@@ -1,7 +1,7 @@
 <a href="{% url 'web:post' repertory.slug %}">
   <div class="editor text-center">
     <h3>{{ repertory.title }}</h3>
-    <p>{{ repertory.content|safe|truncatechars:280 }}</p>
+    <p>{{ repertory.content|safe|truncatechars:100 }}</p>
     <span></span>
   </div>
 </a>
