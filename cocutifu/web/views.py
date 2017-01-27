@@ -14,7 +14,8 @@ class HomeView(TemplateView):
             post_type = get_object_or_404(PostType, pk=self.request.GET['type'])
             context['posts'] = Post.objects.filter(types=post_type, active=True)
         else:
-            context['posts'] = Post.objects.filter(active=True)
+            post_type, created= PostType.objects.get_or_create(name='Eventos')
+            context['posts'] = Post.objects.filter(active=True, types=post_type).order_by('-pk')
         repertoires = PostType.objects.filter(name__icontains='Repertorio')
         if repertoires.exists():
         	context['repertoires'] = Post.objects.filter(types=repertoires[0])
